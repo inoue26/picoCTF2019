@@ -1,0 +1,22 @@
+# linux
+
+# デイレクトリ内のファイルすべてをみてcat してpico をgrepする
+ find  /problems/first-grep--part-ii_0_b68f6a4e9cb3a7aad4090dea9dd80ce1/files/ -type f -exec cat {} \; | grep pico
+
+# imageをhexでdump
+hexdump /problems/whats-the-difference_0_00862749a2aeb45993f36cc9cf98a47a/kitters.jpg > kitters.txt
+
+# imageをasciiでdump & 1バイトずつ改行
+hexdump -e '1/1 "%_p"' -e '"\n"' /problems/whats-the-difference_0_00862749a2aeb45993f36cc9cf98a47a/kitters.jpg > kitters.txt
+
+# 空白を改行に変換
+ cat cattos.txt | tr ' ' '\n' > cattos2.txt
+
+# 差分の可視化
+diff -y --suppress-common-lines kitters2.txt cattos2.txt > diff.txt
+
+# 3列目だけ取り出す
+cat diff.txt | awk '{ print $3 }'
+
+
+
